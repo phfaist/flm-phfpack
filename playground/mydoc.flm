@@ -1,0 +1,37 @@
+---
+flm:
+  features:
+    flm_phfpack.phfqit:
+      macro_definitions:
+        opnorm:
+          delimited_arguments_spec_list: [ '{' ]
+          content: |-
+            #[\lVert]{DelimLeft}{#1}#[\rVert]{DelimRight}_\infty
+        onenorm:
+          delimited_arguments_spec_list: [ '{' ]
+          content: |-
+            #[\lVert]{DelimLeft}{#1}#[\rVert]{DelimRight}_1
+        dianorm:
+          delimited_arguments_spec_list: [ '{' ]
+          content: |-
+            #[\lVert]{DelimLeft}{#1}#[\rVert]{DelimRight}_{\diamond}
+
+---
+
+
+Hello world.  Let's try ket's \(\ket\phi\), \(\ket[\big]{\Phi}\), and matrix
+elements \(\dmatrixel[\Big]{A}{\sum x_j}\).  Also,
+\begin{align}
+  \abs*{a+b+\int_{-\infty}^\infty dz g(z)} \neq \norm{a-b}_\infty\ .
+\end{align}
+
+We can also test our custom norms:
+\begin{align}
+  \onenorm`\Bigg{A} - \opnorm*{B} = 0
+\end{align}
+
+We can also test our super phfparen-style backtick expressions:
+\begin{align}
+  `*[A] + `\Bigg<\sum + \int> - `(a-b) = 0\ .
+\end{align}
+… and sets: \(`\big{a, b, c}\), \(`{1, 2, \ldots}\).

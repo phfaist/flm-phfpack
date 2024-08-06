@@ -1,0 +1,22 @@
+---
+flm:
+  features:
+    flm_phfpack.phfqit:
+      macro_definitions:
+        opnorm:
+          delimited_arguments_spec_list: [ '{' ]
+          content: |-
+            #[\lVert]{DelimLeft}{#1}#[\rVert]{DelimRight}_\infty
+        onenorm:
+          delimited_arguments_spec_list: [ '{' ]
+          content: |-
+            #[\lVert]{DelimLeft}{#1}#[\rVert]{DelimRight}_1
+        dianorm:
+          delimited_arguments_spec_list: [ '{' ]
+          content: |-
+            #[\lVert]{DelimLeft}{#1}#[\rVert]{DelimRight}_{\diamond}
+
+---
+
+One norm: \( \onenorm`\Bigg{A} \)
+
