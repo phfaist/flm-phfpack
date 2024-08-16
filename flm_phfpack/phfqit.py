@@ -22,8 +22,8 @@ from flm.flmspecinfo import FLMArgumentSpec, FLMMacroSpecBase
 from flm.feature.substmacros import (
     SetArgumentNumberOffset,
     SubstitutionCallableSpecInfo,
-    PlaceholderSubstitutor,
-    PlaceholderSubstitutorManager,
+    MacroContentSubstitutor,
+    MacroContentSubstitutorManager,
 )
 
 
@@ -92,7 +92,7 @@ map_delimiters_close = {
 }
 
 
-class PhfqitPlaceholderSubstitutor(PlaceholderSubstitutor):
+class PhfqitMacroContentSubstitutor(MacroContentSubstitutor):
 
     def initialize(self):
 
@@ -200,9 +200,9 @@ class PhfqitPlaceholderSubstitutor(PlaceholderSubstitutor):
             
 
 
-class PhfqitPlaceholderSubstitutorManager(PlaceholderSubstitutorManager):
+class PhfqitMacroContentSubstitutorManager(MacroContentSubstitutorManager):
 
-    PlaceholderSubstitutorClass = PhfqitPlaceholderSubstitutor
+    MacroContentSubstitutorClass = PhfqitMacroContentSubstitutor
 
     def __init__(self, *, config_values=None, **kwargs):
         super().__init__(**kwargs)
@@ -250,7 +250,7 @@ class PhfqitPlaceholderSubstitutorManager(PlaceholderSubstitutorManager):
 
 class PhfqitSubstitutionCallable(SubstitutionCallableSpecInfo):
 
-    PlaceholderSubstitutorManagerClass = PhfqitPlaceholderSubstitutorManager
+    MacroContentSubstitutorManagerClass = PhfqitMacroContentSubstitutorManager
 
 
 
