@@ -259,19 +259,26 @@ class PhfqitSubstitutionCallable(SubstitutionCallableSpecInfo):
 
 
 
-_delims_spec_list = [
-    FLMArgumentSpec(
+_delims_spec_by_type = {
+    'SizeArgBacktick': FLMArgumentSpec(
         "e{`}",
         argname='_sizeargBacktick',
     ),
-    FLMArgumentSpec(
+    'SizeArgStar': FLMArgumentSpec(
         "*",
         argname='_sizeargStar',
     ),
-    FLMArgumentSpec(
+    'SizeArgOptArg': FLMArgumentSpec(
         "[",
         argname='_sizeargArg',
     ),
+}
+
+
+_delims_spec_list = [
+    _delims_spec_by_type['SizeArgBacktick'],
+    _delims_spec_by_type['SizeArgStar'],
+    _delims_spec_by_type['SizeArgOptArg'],
 ]
 
 def _spec_delim(delimspec):
@@ -517,7 +524,20 @@ class FeatureClass(SimpleLatexDefinitionsFeature):
                     + spec['delimited_arguments_spec_list']
                 )
             else:
-                arguments_spec_list = spec.get('arguments_spec_list', [])
+                arguments_spec_list_init = spec.get('arguments_spec_list', [])
+                arguments_spec_list = []
+                for arg in arguments_spec_list_init:
+                    if isinstance(arg, str) and arg in _delims_spec_by_type:
+                        arguments_spec_list.append(
+                            _delims_spec_by_type[arg]
+                        )
+                        continue
+                        
+                    # 'SetArgumentNumberOffset' is handled already in substmacros.py
+
+                    # parse it as a normal argument spec ...
+                    arguments_spec_list.append(arg)
+                    
 
             latex_definitions_macros.append(
                 PhfqitSubstitutionCallable(
