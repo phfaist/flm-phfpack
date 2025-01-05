@@ -421,16 +421,16 @@ _defs_substitution_macros = {
     r'NOOP': _gate('No-Op'),
 
     # math groups
-    'uu': dict(arguments_spec_list='(', content=r'\mathrm{u}({#1})'),
-    'UU': dict(arguments_spec_list='(', content=r'\mathrm{U}({#1})'),
-    'su': dict(arguments_spec_list='(', content=r'\mathrm{su}({#1})'),
-    'SU': dict(arguments_spec_list='(', content=r'\mathrm{SU}({#1})'),
-    'so': dict(arguments_spec_list='(', content=r'\mathrm{so}({#1})'),
-    'SO': dict(arguments_spec_list='(', content=r'\mathrm{SO}({#1})'),
-    'slalg': dict(arguments_spec_list='(', content=r'\mathrm{sl}({#1})'),
-    'SL': dict(arguments_spec_list='(', content=r'\mathrm{SL}({#1})'),
-    'GL': dict(arguments_spec_list='(', content=r'\mathrm{GL}({#1})'),
-    'SN': dict(arguments_spec_list='(', content=r'\mathrm{S}_{#1}'),
+    'uu': dict(arguments_spec_list=['r()'], content=r'\mathrm{u}({#1})'),
+    'UU': dict(arguments_spec_list=['r()'], content=r'\mathrm{U}({#1})'),
+    'su': dict(arguments_spec_list=['r()'], content=r'\mathrm{su}({#1})'),
+    'SU': dict(arguments_spec_list=['r()'], content=r'\mathrm{SU}({#1})'),
+    'so': dict(arguments_spec_list=['r()'], content=r'\mathrm{so}({#1})'),
+    'SO': dict(arguments_spec_list=['r()'], content=r'\mathrm{SO}({#1})'),
+    'slalg': dict(arguments_spec_list=['r()'], content=r'\mathrm{sl}({#1})'),
+    'SL': dict(arguments_spec_list=['r()'], content=r'\mathrm{SL}({#1})'),
+    'GL': dict(arguments_spec_list=['r()'], content=r'\mathrm{GL}({#1})'),
+    'SN': dict(arguments_spec_list=['r()'], content=r'\mathrm{S}_{#1}'),
 }
 
 
